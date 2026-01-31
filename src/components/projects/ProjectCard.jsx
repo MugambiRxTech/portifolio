@@ -8,17 +8,22 @@ const FALLBACK_IMG =
 export default function ProjectCard({ project, onDelete }) {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
+  const imgSrc = project.imageUrl?.trim() ? project.imageUrl.trim() : FALLBACK_IMG;
+
   return (
     <>
       <article className="pCard">
         <div className="pImgWrap">
           <img
             className="pImg"
-            src={project.imageUrl?.trim() ? project.imageUrl : FALLBACK_IMG}
-            alt={project.title}
+            src={imgSrc}
+            alt={project.title || "Project image"}
             loading="lazy"
+            onError={(e) => {
+              e.currentTarget.src = FALLBACK_IMG;
+            }}
           />
-          <span className="pBadge">{project.category}</span>
+          <span className="pBadge">{project.category || "General"}</span>
         </div>
 
         <div className="pBody">
@@ -27,13 +32,19 @@ export default function ProjectCard({ project, onDelete }) {
               {project.title}
             </Link>
 
-            <button className="iconBtn" onClick={() => setConfirmOpen(true)} title="Delete" aria-label="Delete project">
+            <button
+              className="iconBtn"
+              type="button"
+              onClick={() => setConfirmOpen(true)}
+              title="Delete"
+              aria-label="Delete project"
+            >
               ✕
             </button>
           </div>
 
           <div className="pMeta">
-            <span className="pYear">📅 {project.year}</span>
+            <span className="pYear">📅 {project.year || "—"}</span>
           </div>
 
           <p className="pDesc">{project.description}</p>

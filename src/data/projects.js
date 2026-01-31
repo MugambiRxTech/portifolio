@@ -54,15 +54,16 @@ export const initialProjects = [
       "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1600&q=80",
     tags: ["React Native", "Firebase", "UI/UX"],
   },
-  {
-    id: crypto.randomUUID(),
-    title: "Tech Startup Brand Identity",
-    description:
-      "Complete brand identity design including logo system, typography, color palette, and brand guidelines.",
-    category: "Branding",
-    year: 2023,
-    imageUrl:
-      "https://images.unsplash.com/photo-1529336953121-a0b1e8999522?auto=format&fit=crop&w=1600&q=80",
-    tags: ["Branding", "Logo Design", "Guidelines"],
-  },
-];
+  
+{
+id: crypto.randomUUID(),
+  title: "Tech Startup Brand Identity",
+  description:
+    "Complete brand identity design including logo system, typography, color palette, and brand guidelines.",
+  category: "Branding",
+  year: 2023,
+  imageUrl:
+    "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1600&q=80",
+  tags: ["Branding", "Logo Design", "Guidelines"],
+}
+]
