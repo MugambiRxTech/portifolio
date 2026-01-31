@@ -6,6 +6,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import ProjectList from "../components/projects/ProjectList";
 import Toast from "../components/common/Toast";
 import AddProjectModal from "../components/projects/AddProjectModal";
+import SearchBar from "../components/common/SearchBar";
 
 export default function Home() {
   const [projects, setProjects] = useLocalStorage("pps_projects", initialProjects);
@@ -81,18 +82,7 @@ export default function Home() {
 
       {/* SEARCH + FILTERS */}
       <section className="csControls">
-        <div className="csSearch">
-          <span className="csSearchIcon">🔍</span>
-          <input
-            type="search"
-            className="csSearchInput"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search projects by title, description, or tags..."
-            inputMode="search"
-            autoComplete="off"
-          />
-        </div>
+        <SearchBar value={search} onChange={setSearch} />
 
         <div className="csChips">
           {CATEGORIES.map((c) => (
